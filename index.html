@@ -1,197 +1,214 @@
+下面是一张温暖、权威感十足的“单页海报”风格网页（苹果式极简、技术人文主义），包含显眼的姓名与祝福、14 天疗程表，以及可下拉展开的媒体报道引述区块（每条内容底部提供原文入口）。保存为 index.html 即可使用或部署。
+
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>魏之瑶专属｜林泽鑫疗愈音乐 · 脑神经修复音乐疗愈包</title>
-<meta name="description" content="苹果风极简产品页面，技术人文主义美学。为魏之瑶定制的脑神经修复音乐疗愈包＋祷告手环，含权威媒体报道下拉阅读，统一风格呈现。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23007aff'/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>魏之瑶｜疗愈音乐单页海报</title>
+<meta name="description" content="苹果风极简单页海报：魏之瑶专属疗愈音乐，14 天疗程表，媒体报道引述区块，技术人文主义美学。" />
 <style>
   :root{
-    --bg:#fff;
-    --fg:#111;
-    --muted:#6b7280;
-    --line:#e5e7eb;
-    --accent:#007aff;
-    --soft:#f7f7f8;
-    --max:960px;
-    --radius:14px;
+    --bg:#fff; --fg:#0a0a0a; --muted:#666; --line:#ececec; --soft:#f7f7f8;
+    --accent:#007aff; --max:900px; --radius:16px;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;line-height:1.65}
-  body{animation:fadeIn .8s ease}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  img{max-width:100%;border-radius:12px}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  @keyframes slideDown{from{transform:translateY(-8px);opacity:0}to{transform:translateY(0);opacity:1}}
-
-  /* Header */
-  header{padding:84px 20px 28px;text-align:center;animation:slideDown .6s ease-out}
-  .badge{
-    display:inline-flex;gap:8px;align-items:center;color:var(--muted);
-    border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px
-  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  header{padding:84px 0 28px;text-align:center}
+  .badge{display:inline-flex;gap:8px;align-items:center;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px}
   .badge i{width:6px;height:6px;background:var(--accent);border-radius:50%}
-  h1{margin:16px 0 10px;font-size:34px;font-weight:700;letter-spacing:.2px}
+  h1{margin:18px 0 8px;font-size:40px;letter-spacing:.2px;font-weight:750}
   .sub{margin:0;color:var(--muted);font-size:16px}
-
-  /* Layout */
-  main{max-width:var(--max);margin:0 auto;padding:8px 20px 56px}
-  section{padding:20px 0}
-  section h2{margin:36px 0 10px;font-size:22px;font-weight:700;letter-spacing:.2px}
-  section p.lead{color:var(--muted);margin:2px 0 10px}
-
-  /* Cards / Tables */
-  .list{margin:8px 0 0;padding:0;list-style:none}
-  .list li{margin:10px 0}
-  .note{
-    background:var(--soft);border:1px solid var(--line);border-radius:12px;
-    padding:12px 14px;color:#374151
+  .hero{
+    margin:20px auto 0;max-width:680px;border:1px solid var(--line);border-radius:var(--radius);
+    background:linear-gradient(180deg,#fff,#fafafa);padding:18px 20px;color:#334155
   }
-  .table{border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  table{width:100%;border-collapse:collapse}
-  thead th{background:#fafafa;color:#4b5563}
-  th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left}
+  .hero p{margin:0}
+  .section{padding:28px 0}
+  .section h2{margin:0 0 12px;font-size:22px;font-weight:750;letter-spacing:.2px}
+  .lead{margin:2px 0 12px;color:#475569}
+  .meta{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0 0;color:#6b7280;font-size:14px}
+  .meta .pill{border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:#fff}
 
-  /* Split grid */
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  @media (max-width:900px){.grid{grid-template-columns:1fr}}
-  @media (max-width:640px){
-    header{padding:64px 16px 18px}
-    h1{font-size:28px}
-    .sub{font-size:14px}
-    th,td{padding:12px}
+  /* 14 天疗程表 */
+  .plan{
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff
   }
+  .plan-head{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;
+    padding:14px 16px;background:#fafafa;border-bottom:1px solid var(--line)}
+  .plan-head .title{font-weight:700;color:#111}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;padding:16px}
+  .day{
+    border:1px solid var(--line);border-radius:12px;padding:10px 10px;background:#fff;min-height:68px;
+    display:flex;flex-direction:column;gap:6px;justify-content:space-between
+  }
+  .dnum{font-size:12px;color:#9aa0a6}
+  .dtag{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#0f172a}
+  .dot{width:8px;height:8px;border-radius:50%;background:#e5e7eb}
+  .dot.a{background:#22c55e} .dot.b{background:#f59e0b}
+  .dot.c{background:#3b82f6}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:#6b7280}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .remind{padding:12px 16px;border-top:1px solid var(--line);background:#fff;color:#475569}
 
-  /* CTA / Blessing */
-  .blessing{
-    border:1px solid var(--line);border-radius:14px;padding:18px;background:linear-gradient(180deg,#fff, #fafafa);
-    box-shadow:0 1px 0 #f3f4f6 inset;color:#374151
-  }
+  /* 使用时段概览 */
+  .mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .mini .card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+  .card h3{margin:0 0 6px;font-size:15px;font-weight:700}
+  .card p{margin:0;color:#4b5563;font-size:14px}
 
-  /* Media section (accordion) */
-  .media{
-    border-top:1px solid var(--line);
-    padding-top:8px
-  }
-  .m-intro{color:var(--muted)}
-  .acc{
-    border:1px solid var(--line);
-    border-radius:16px;background:#fff;
-    overflow:hidden;transition:box-shadow .2s ease,border-color .2s ease;
-  }
+  /* 媒体引述（下拉展开） */
+  .media{padding-top:8px;border-top:1px solid var(--line)}
+  .acc{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
   .acc + .acc{margin-top:14px}
-  .acc:hover{box-shadow:0 12px 28px rgba(0,0,0,.06);border-color:#e9e9e9}
-  .acc-h{
-    width:100%;display:flex;justify-content:space-between;align-items:center;
-    padding:16px 18px;background:#fff;border:none;cursor:pointer;text-align:left
-  }
+  .acc-h{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;
+    padding:16px 18px;background:#fff;border:none;text-align:left;cursor:pointer}
   .acc-h:focus{outline:2px solid rgba(0,122,255,.3);outline-offset:2px;border-radius:12px}
-  .acc-meta{display:flex;gap:10px;align-items:center}
-  .acc-src{
-    font-size:12px;color:#6b7280;background:#f5f5f6;border:1px solid #eee;padding:3px 8px;border-radius:999px
-  }
-  .acc-title{font-size:16px;font-weight:600;color:#111}
-  .acc-arrow{width:18px;height:18px;transition:transform .25s ease;flex:0 0 auto}
+  .acc-meta{display:flex;flex-direction:column;gap:2px}
+  .acc-src{font-size:12px;color:#6b7280}
+  .acc-title{font-size:15px;font-weight:700;color:#111}
+  .acc-arrow{width:18px;height:18px;transition:transform .25s ease}
   .acc.open .acc-arrow{transform:rotate(180deg)}
-  .acc-c{
-    height:0;overflow:hidden;transition:height .28s ease;
-    border-top:1px solid transparent;background:linear-gradient(180deg,#fff,#fcfcfd)
-  }
+  .acc-c{height:0;overflow:hidden;transition:height .28s ease;border-top:1px solid transparent;
+    background:linear-gradient(180deg,#fff,#fcfcfd)}
   .acc.open .acc-c{border-top-color:var(--line)}
   .acc-inner{padding:14px 18px 16px}
-  .acc-desc{color:#4b5563;margin:4px 0 10px}
-  .acc-quote{
-    margin:10px 0;padding-left:14px;border-left:3px solid #ececec;color:#374151;font-style:italic
-  }
-  .acc-tail{
-    display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px;color:#6b7280;font-size:13px
-  }
-  .acc-link{
-    display:inline-flex;align-items:center;gap:6px;
-    color:var(--accent);text-decoration:none;font-weight:600
-  }
-  .acc-link:hover{text-decoration:underline}
+  .acc-desc{color:#374151;margin:0 0 8px}
+  .acc-quote{margin:8px 0 10px;padding-left:14px;border-left:3px solid #ececec;color:#4b5563;font-style:italic}
+  .acc-tail{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px;color:#6b7280;font-size:13px}
+  .link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;text-decoration:none}
+  .link:hover{text-decoration:underline}
 
-  /* Footer */
-  footer{padding:36px 20px;text-align:center;color:#9aa0a6;font-size:13px;border-top:1px solid var(--line)}
+  /* 注记 */
+  .note{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;color:#4b5563}
+
+  /* 顶部与底部工具区 */
+  .tools{display:flex;gap:10px;justify-content:center;margin:16px 0 0}
+  .btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-size:14px;color:#111;cursor:pointer}
+  .btn:hover{box-shadow:0 6px 18px rgba(0,0,0,.06)}
+
+  footer{padding:38px 0;text-align:center;color:#9aa0a6;border-top:1px solid var(--line);margin-top:28px}
+
+  /* 响应式 */
+  @media (max-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+  @media (max-width:640px){
+    header{padding:64px 0 18px}
+    h1{font-size:32px}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .mini{grid-template-columns:1fr}
+  }
+
+  /* 打印优化：展开全部，引文显示原文链接 */
+  @media print{
+    .tools{display:none}
+    .acc-c{height:auto !important}
+    .acc{break-inside:avoid}
+    .wrap{max-width:100%}
+    header{padding:48px 0 16px}
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="badge"><i></i> 林泽鑫疗愈音乐 · 指导</div>
-  <h1>魏之瑶专属</h1>
-  <p class="sub">脑神经修复音乐疗愈包 ＋ 祷告手环<br>14 天 · 三时段 · 一份温柔的坚持</p>
-</header>
+<div class="wrap">
+  <header>
+    <div class="badge"><i></i> 林泽鑫疗愈音乐 · 指导</div>
+    <h1>魏之瑶</h1>
+    <p class="sub">两小时 · 三时段 · 14 天的温柔守护</p>
+    <div class="hero" aria-label="祝福语">
+      <p><strong>特别祝福：</strong>愿每一天的旋律、每一次轻声的呼唤，都成为之瑶神经修复路上的温柔力量。</p>
+    </div>
+    <div class="tools">
+      <button class="btn" onclick="window.print()">下载 / 打印海报</button>
+      <a class="btn" href="#media">跳至媒体引述</a>
+    </div>
+  </header>
 
-<main>
-  <section aria-label="产品核心">
-    <h2>产品核心</h2>
-    <p class="lead">技术与人文合一：声音极简、节律稳定、动态温和，回到呼吸与连接。</p>
-    <ul class="list">
-      <li><strong>目标：</strong>调节神经系统，改善睡眠与情绪，营造稳定的家庭氛围</li>
-      <li><strong>结构：</strong>2 小时音频 · 早晨 / 午间 / 夜晚</li>
-      <li><strong>方式：</strong>外放轻音量，固定时段与空间，同一句温柔启动提示语</li>
-      <li><strong>周期：</strong>14 天为一阶段；第 7 天与第 14 天复评 / 复诊</li>
-    </ul>
-    <div class="note">本页面所用音乐为 <strong>林泽鑫</strong> 的疗愈音乐与方法论指导；建议与专业医生及康复师配合使用。</div>
-  </section>
-
-  <section aria-label="使用节律">
-    <h2>使用节律</h2>
-    <div class="table" role="region" aria-label="三时段使用表">
-      <table>
-        <thead><tr><th scope="col">时段</th><th scope="col">作用</th><th scope="col">感受</th></tr></thead>
-        <tbody>
-          <tr><td>早晨</td><td>唤醒神经系统</td><td>轻柔启动，建立安全节律</td></tr>
-          <tr><td>午间</td><td>深度修复</td><td>降低张力，平稳入睡</td></tr>
-          <tr><td>夜晚</td><td>深度放松</td><td>陪伴入眠，稳定脑波</td></tr>
-        </tbody>
-      </table>
+  <section class="section">
+    <h2>14 天疗程表</h2>
+    <p class="lead">固定三时段，建立可预期的安全节律；第 7 天与第 14 天复评 / 复诊。</p>
+    <div class="plan">
+      <div class="plan-head">
+        <div class="title">日程概览</div>
+        <div class="legend">
+          <span><i class="dot a"></i> 建立节律</span>
+          <span><i class="dot b"></i> 深化放松</span>
+          <span><i class="dot c"></i> 复评 / 复诊</span>
+        </div>
+      </div>
+      <div class="grid" aria-label="14天网格">
+        <!-- 1-7 建立节律 -->
+        <div class="day"><span class="dnum">Day 1</span><span class="dtag"><i class="dot a"></i>固定三段时间</span></div>
+        <div class="day"><span class="dnum">Day 2</span><span class="dtag"><i class="dot a"></i>统一启动提示语</span></div>
+        <div class="day"><span class="dnum">Day 3</span><span class="dtag"><i class="dot a"></i>记录睡眠与惊跳</span></div>
+        <div class="day"><span class="dnum">Day 4</span><span class="dtag"><i class="dot a"></i>稳定音量与环境</span></div>
+        <div class="day"><span class="dnum">Day 5</span><span class="dtag"><i class="dot a"></i>家人共听声场</span></div>
+        <div class="day"><span class="dnum">Day 6</span><span class="dtag"><i class="dot a"></i>微调播放时长</span></div>
+        <div class="day"><span class="dnum">Day 7</span><span class="dtag"><i class="dot c"></i>阶段复评</span></div>
+        <!-- 8-14 深化放松 -->
+        <div class="day"><span class="dnum">Day 8</span><span class="dtag"><i class="dot b"></i>延续稳定节律</span></div>
+        <div class="day"><span class="dnum">Day 9</span><span class="dtag"><i class="dot b"></i>减少无关声源</span></div>
+        <div class="day"><span class="dnum">Day 10</span><span class="dtag"><i class="dot b"></i>加入温和抚触</span></div>
+        <div class="day"><span class="dnum">Day 11</span><span class="dtag"><i class="dot b"></i>午间更快入睡</span></div>
+        <div class="day"><span class="dnum">Day 12</span><span class="dtag"><i class="dot b"></i>夜晚更少惊扰</span></div>
+        <div class="day"><span class="dnum">Day 13</span><span class="dtag"><i class="dot b"></i>全家节律对齐</span></div>
+        <div class="day"><span class="dnum">Day 14</span><span class="dtag"><i class="dot c"></i>复诊与计划调整</span></div>
+      </div>
+      <div class="remind">
+        提醒：音乐与祷告手环为环境与情绪支持工具，请与医生 / 康复师方案并行使用。
+      </div>
     </div>
   </section>
 
-  <section aria-label="祷告手环">
-    <h2>祷告手环</h2>
-    <div class="grid">
-      <div class="blessing">
-        <strong>定位：</strong>信念与祝福的锚点，提醒家人保持平安与盼望。<br>
-        <strong>佩戴：</strong>孩子或家长可长期佩戴，作为情绪安定的日常提示。<br>
-        <strong>家属见证：</strong>“佩戴后一周，便血停止，医生无法解释。”（个体体验，仅供参考，不构成医疗建议）
+  <section class="section">
+    <h2>三时段使用</h2>
+    <div class="mini">
+      <div class="card">
+        <h3>早晨 · 温柔唤醒</h3>
+        <p>轻抚与低声呼唤，帮助神经系统从容“上线”，为一天定下安全节律。</p>
       </div>
-      <div class="note">
-        <strong>并行原则：</strong>音乐与手环为环境与情绪支持工具，需与专业医疗与康复训练并行。出现不适请暂停，调整音量与时长后再启用。
+      <div class="card">
+        <h3>午间 · 修复过渡</h3>
+        <p>降低张力与惊跳，作为午睡前的安定仪式，提升入睡与醒后平稳。</p>
       </div>
+      <div class="card">
+        <h3>夜晚 · 深度放松</h3>
+        <p>减少刺激，让音乐成为房间里最稳定的存在，陪伴进入持续睡眠。</p>
+      </div>
+    </div>
+    <div class="meta">
+      <div class="pill">外放轻音量 · 不遮盖人声</div>
+      <div class="pill">固定空间与时间</div>
+      <div class="pill">同一句温柔启动提示语</div>
     </div>
   </section>
 
-  <section aria-label="特别祝福">
-    <h2>特别祝福</h2>
-    <div class="blessing">这份音乐与手环，带着我们对魏之瑶的心意与祈祷——愿每一天的旋律、每一次的触碰，都成为她康复路上的温柔力量。</div>
-  </section>
-
-  <section class="media" aria-label="官方新闻报道 · 林泽鑫">
-    <h2>官方新闻报道（下拉查看）</h2>
-    <p class="m-intro">统一风格的精炼摘录，点击下拉阅读；每篇末尾提供官方原文入口。</p>
+  <section id="media" class="section media" aria-label="媒体报道引述">
+    <h2>官方新闻报道（下拉阅读）</h2>
+    <p class="lead">统一风格的核心摘录，点击下拉查看；每篇末尾提供官方原文入口。</p>
 
     <!-- 南方新闻网 · 司法局 -->
     <article class="acc" data-acc>
       <button class="acc-h" aria-expanded="false">
         <div class="acc-meta">
           <span class="acc-src">南方新闻网 · 司法局</span>
-          <span class="acc-title">白云区金沙司法所心理辅导小组：音乐与关怀，帮助释放压力</span>
+          <span class="acc-title">白云区金沙司法所心理辅导：音乐与关怀，帮助释放压力</span>
         </div>
-        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="acc-c" role="region">
         <div class="acc-inner">
-          <p class="acc-desc">面向女性社矫对象开展团体心理辅导，结合轻松音乐、绘画与心理技术，引导参与者识别情绪、重建自我价值感，在支持性氛围中学习身心调节。</p>
+          <p class="acc-desc">面向女性社矫对象开展团体心理辅导，引入轻松音乐与心理技术，帮助参与者识别情绪、舒缓压力，在支持性氛围中重建自我价值感。</p>
           <p class="acc-quote">“在音乐与同伴支持中重新看见自己，学会与压力和平相处。”</p>
           <div class="acc-tail">
-            <span>摘录自官方报道，略去图片与次级细节以保持统一视觉。</span>
-            <a class="acc-link" href="https://news.southcn.com/node_54a44f01a2/ae7477da11.shtml" target="_blank" rel="noopener noreferrer">原文链接 →</a>
+            <span>为统一视觉，保留主线信息。</span>
+            <a class="link" href="https://news.southcn.com/node_54a44f01a2/ae7477da11.shtml" target="_blank" rel="noopener noreferrer">原文链接 →</a>
           </div>
         </div>
       </div>
@@ -201,18 +218,18 @@
     <article class="acc" data-acc>
       <button class="acc-h" aria-expanded="false">
         <div class="acc-meta">
-          <span class="acc-src">光明日报客户端 · 石井街</span>
-          <span class="acc-title">首次引入音乐疗愈，支持困境家庭与一线人员减压</span>
+          <span class="acc-src">光明日报客户端 · 白云石井街</span>
+          <span class="acc-title">引入音乐疗愈，支持困境家庭与一线人员情绪恢复</span>
         </div>
-        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="acc-c" role="region">
         <div class="acc-inner">
-          <p class="acc-desc">社区社工站组织“音乐疗愈活动”，邀请疗愈音乐指导进入社区；线下困境家庭与线上居民同步参与，现场以乐声引导放松，焦虑度显著下降，获得持续正向反馈。</p>
-          <p class="acc-quote">“随着琴声起落，情绪随节律舒缓，内在获得重新得力。”</p>
+          <p class="acc-desc">社区社工站组织音乐疗愈活动，线下困境家庭与线上居民同步参与，在稳定节律中获得松弛体验并收获正向反馈。</p>
+          <p class="acc-quote">“随着音符起落，焦虑被温柔放下，心绪重新得力。”</p>
           <div class="acc-tail">
-            <span>精炼呈现核心场景与体验，完整报道见原链接。</span>
-            <a class="acc-link" href="https://app.gmdaily.cn/as/opened/n/6fc7bb54287a4b76a1b91d14c14709bc" target="_blank" rel="noopener noreferrer">原文链接 →</a>
+            <span>精炼呈现核心场景与体验。</span>
+            <a class="link" href="https://app.gmdaily.cn/as/opened/n/6fc7bb54287a4b76a1b91d14c14709bc" target="_blank" rel="noopener noreferrer">原文链接 →</a>
           </div>
         </div>
       </div>
@@ -223,77 +240,81 @@
       <button class="acc-h" aria-expanded="false">
         <div class="acc-meta">
           <span class="acc-src">白云融媒</span>
-          <span class="acc-title">社区身心健康关怀项目：音乐介入，营造可感的安定</span>
+          <span class="acc-title">社区身心健康关怀：音乐介入，营造可预期的安定</span>
         </div>
-        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="acc-c" role="region">
         <div class="acc-inner">
-          <p class="acc-desc">报道社区在公共服务中引入音乐与心理支持，面向居民与家庭提供情绪疏导与连接空间，形成“可预期、可持续”的舒缓路径。</p>
+          <p class="acc-desc">在公共服务中引入音乐与心理支持，为居民与家庭提供情绪疏导与连接空间，探索温和且可持续的身心舒缓路径。</p>
           <div class="acc-tail">
-            <span>为统一视觉，内容经精炼排版。</span>
-            <a class="acc-link" href="https://guangzhoubaiyun.gz-cmc.com/pages/2022/01/25/4293eff394a54dce9affb2e122a2bd75.html" target="_blank" rel="noopener noreferrer">原文链接 →</a>
+            <span>为保持极简风格，摘要呈现。</span>
+            <a class="link" href="https://guangzhoubaiyun.gz-cmc.com/pages/2022/01/25/4293eff394a54dce9affb2e122a2bd75.html" target="_blank" rel="noopener noreferrer">原文链接 →</a>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- 广东省妇幼保健院 · 微信公众号 -->
+    <!-- 省妇幼（微信公众号） -->
     <article class="acc" data-acc>
       <button class="acc-h" aria-expanded="false">
         <div class="acc-meta">
-          <span class="acc-src">广东省妇幼保健院</span>
-          <span class="acc-title">“遇见音乐，愈见自己”——职工身心恢复音乐疗愈沙龙</span>
+          <span class="acc-src">广东省妇幼保健院 · 微信公众号</span>
+          <span class="acc-title">“遇见音乐，愈见自己”——院内身心恢复音乐疗愈沙龙</span>
         </div>
-        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="acc-c" role="region">
         <div class="acc-inner">
-          <p class="acc-desc">院内联动多科室开展音乐疗愈沙龙，播放原创舒缓音乐，引导拥抱练习、关系连结与情绪表达，帮助医护在忙碌中找回平静与力量。</p>
+          <p class="acc-desc">多科室联动开展音乐疗愈活动，结合原创舒缓音乐与关系连结练习，帮助医护在高压中找回平静与力量。</p>
           <p class="acc-quote">“当我支持他人时，我也被支持；当我拥抱他人时，我也被拥抱。”</p>
           <div class="acc-tail">
-            <span>图文较多，本站保留文字主线以维护极简风格。</span>
-            <a class="acc-link" href="https://mp.weixin.qq.com/s/HChLYEMYbLf3MRu3KAsE9Q" target="_blank" rel="noopener noreferrer">原文链接 →</a>
+            <span>图文较多，本站保留文字主线。</span>
+            <a class="link" href="https://mp.weixin.qq.com/s/HChLYEMYbLf3MRu3KAsE9Q" target="_blank" rel="noopener noreferrer">原文链接 →</a>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- 学习强国 · 中山二院（中山大学孙逸仙纪念医院） -->
+    <!-- 学习强国 · 中山二院 -->
     <article class="acc" data-acc>
       <button class="acc-h" aria-expanded="false">
         <div class="acc-meta">
           <span class="acc-src">学习强国 · 中山二院</span>
-          <span class="acc-title">全国公立医院首个“幸福空间”：声景学与AI音疗的跨界实践</span>
+          <span class="acc-title">“幸福空间”：声景学与 AI 音疗的跨界实践</span>
         </div>
-        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="acc-c" role="region">
         <div class="acc-inner">
-          <p class="acc-desc">以声景学、香氛与光环境结合XR与AI音疗，打造沉浸式身心放松场域，服务医务人员的情绪恢复与压力管理，展示“技术人文主义”的落地路径。</p>
+          <p class="acc-desc">在医疗场景中融合声景学、光环境与 AI 音疗，为医务人员提供沉浸式放松空间，展示技术人文主义的实践路径。</p>
           <div class="acc-tail">
-            <span>与个体化康复计划协同，更易呈现可持续的正向变化。</span>
-            <a class="acc-link" href="https://article.xuexi.cn/articles/index.html?art_id=10958148239237769465&source=share&study_style_id=feeds_opaque&reco_id=102cdea9945cc0a88442000g&share_to=wx_single&study_share_enable=1&study_comment_disable=0&ptype=0&item_id=10958148239237769465" target="_blank" rel="noopener noreferrer">原文链接 →</a>
+            <span>建议与个体化康复计划协同使用。</span>
+            <a class="link" href="https://article.xuexi.cn/articles/index.html?art_id=10958148239237769465&source=share&study_style_id=feeds_opaque&reco_id=102cdea9945cc0a88442000g&share_to=wx_single&study_share_enable=1&study_comment_disable=0&ptype=0&item_id=10958148239237769465" target="_blank" rel="noopener noreferrer">原文链接 →</a>
           </div>
         </div>
       </div>
     </article>
   </section>
-</main>
 
-<footer>
-  © 2025 脑神经修复音乐疗愈 · 技术人文主义
-</footer>
+  <section class="section">
+    <div class="note">
+      注：本页面为统一风格的摘录与海报展示，音乐由林泽鑫提供方法论指导；为情绪与环境支持工具，不替代医疗诊断或治疗，请与医生 / 康复师配合使用。
+    </div>
+  </section>
+
+  <footer>© 2025 脑神经修复音乐疗愈 · 技术人文主义</footer>
+</div>
 
 <script>
-  // Smooth accordion open/close with height animation
+  // 手风琴展开/收起（下拉阅读）
   const accs = document.querySelectorAll('[data-acc]');
   accs.forEach(acc=>{
     const btn = acc.querySelector('.acc-h');
     const panel = acc.querySelector('.acc-c');
     btn.addEventListener('click', ()=>{
-      const isOpen = acc.classList.contains('open');
-      // close others for cleaner feel (optional)
+      const open = acc.classList.contains('open');
+      // 仅保持单开，利于“海报式”观感
       accs.forEach(a=>{
         if(a!==acc && a.classList.contains('open')){
           a.classList.remove('open');
@@ -302,7 +323,7 @@
           a.querySelector('.acc-h').setAttribute('aria-expanded','false');
         }
       });
-      if(!isOpen){
+      if(!open){
         acc.classList.add('open');
         panel.style.height = panel.scrollHeight + 'px';
         btn.setAttribute('aria-expanded','true');
@@ -312,13 +333,12 @@
         btn.setAttribute('aria-expanded','false');
       }
     });
-    // transition end fix for dynamic height
-    panel.addEventListener('transitionend', (e)=>{
+    panel.addEventListener('transitionend', ()=>{
       if(acc.classList.contains('open')) panel.style.height = 'auto';
     });
   });
 
-  // resize fix: recompute open panels height
+  // 窗口变化时重算高度
   window.addEventListener('resize', ()=>{
     document.querySelectorAll('.acc.open .acc-c').forEach(p=>{
       p.style.height = 'auto';
@@ -327,6 +347,8 @@
     });
   });
 </script>
-
 </body>
 </html>
+```
+
+需要我把它集成进你现有仓库的 index.html 吗？或者给你再出一版适配打印的 A4/Letter 边距与出血控制的排版版本。
