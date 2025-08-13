@@ -168,9 +168,38 @@
     <div class="note">这份音乐与手环，带着我们对魏之瑶的心意与祈祷——愿每一天的旋律、每一次的触碰，都成为她康复路上的温柔力量。</div>
   </section>
 </main>
+<!-- 联系方式区块 -->
+<section aria-label="联系方式" style="padding:40px 0;border-top:1px solid #ececec;text-align:center">
+  <h2 style="font-size:20px;font-weight:700;margin-bottom:12px;">联系方式</h2>
+  <p style="color:#555;margin-bottom:16px;">扫描二维码添加微信，或搜索微信号</p>
+  <button id="showQR" style="background:#007aff;color:#fff;border:none;padding:10px 22px;
+          border-radius:999px;font-size:14px;cursor:pointer;">点击查看二维码</button>
+  <p style="margin-top:14px;color:#666;">微信号：<strong>钱多加</strong></p>
+</section>
 
+<!-- 遮罩弹窗 -->
+<div id="qrModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+     background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);justify-content:center;align-items:center;z-index:9999;">
+  <div style="background:#fff;padding:20px;border-radius:16px;text-align:center;max-width:90%;">
+    <img src="wechat-qrcode.jpg" alt="微信二维码" style="max-width:240px;width:100%;height:auto;border-radius:8px;border:1px solid #ddd">
+    <p style="margin-top:12px;color:#555;font-size:14px">长按保存或扫码添加微信</p>
+    <button id="closeQR" style="margin-top:16px;background:#f5f5f5;color:#333;border:none;
+            padding:8px 18px;border-radius:999px;cursor:pointer;">关闭</button>
+  </div>
+</div>
+
+<script>
+  const showQR = document.getElementById('showQR');
+  const qrModal = document.getElementById('qrModal');
+  const closeQR = document.getElementById('closeQR');
+  showQR.addEventListener('click',()=> qrModal.style.display='flex');
+  closeQR.addEventListener('click',()=> qrModal.style.display='none');
+  qrModal.addEventListener('click',e=>{if(e.target===qrModal) qrModal.style.display='none'});
+</script>
+
+  
 <footer>&copy; 2025 脑神经修复音乐疗愈 · 保留所有权利</footer>
 
 </body>
 </html>
-```
+
